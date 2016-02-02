@@ -2,4 +2,14 @@ extends layout
 
 block content
   h1 Välkommen till I-voter
+  script(src='/javascripts/index.js', type="text/javascript")
   p= email
+  form(id="vote" action="/vote", method="post")
+    label(for="option") Välj ditt alternativ
+    br
+    select(name="option")
+        - each option in options
+          option(value=option.value)= option.text
+    br
+
+    input(type="submit", value="Rösta")

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    script(src='/javascripts/admin.js', type="text/javascript")
+    .container
+        h1 Admin panel
+        .inactive
+            .row
+                .col-sm-12
+                    a
+                        h1#add + Lägg till alternativ
+            .row
+                .col-sm-12
+                    .create-form
+                        form(id="start-vote" action="/start-vote", method="post")
+                            #fields
+                            br
+                            input.btn.btn-primary(type="submit",value="Starta röstning")
+        .active
+            .row
+                .col-sm-12
+                    .display-results
+            .row
+                .col-sm-12
+                    .btn.btn-primary.stop-btn Avsluta röstning
