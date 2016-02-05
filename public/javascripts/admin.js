@@ -15,15 +15,16 @@ function addOption() {
 }
 
 function setVote(vote) { 
+    var stats = vote.stats || {};
     $(".display-results").html("");
-    vote.options.forEach(function (option) { 
-        var percent = (option.votes / vote.votes) || 0;
+    vote.options.forEach(function (option,i) { 
+        var percent = (((stats[i] || 0) / vote.votes) || 0) * 100;
         $(".display-results").append(
             "<span>"+option.text+"</span>"+
             "<div class='progress' >"+
                 "<div style='width:"+percent+"%' class='progress-bar'"+
                 "role='progressbar'"+
-                "<span class='sr-only'>"+percent+"%</span>"+
+                "<span class='sr-only'>"+percent.toFixed(1)+"%</span>"+
                     "</div></div><br/>"
         );
     });

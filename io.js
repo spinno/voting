@@ -22,14 +22,24 @@ module.exports = {
 
             socket.on('vote', function (msg) { 
                 var query = {};
-                query["option."+id] = 0;
+                query["stats."+msg.id] = 1;
+                query["votes"] = 1;
 
-                db.update({ _id: currentVote.id }, { $inc: query });
-                console.log("vote on id: " + msg.id);
-                socket.emit('wait', {});
+                db.update({ active: true }, { $inc: query }, function () { 
+
+                    socket.emit('wait', {});
+                    db.findOne({ active: true }, function (err, doc) { 
+                        socket.to("admin").emit("admin-speed", {
+                            error: err,
+                            vote: doc
+                        });
+                    });
+                });
+                
             });
 
             socket.on('admin-hook', function (msg) { 
+                socket.join("admin");
                 db.findOne({ active: true }, function (err, vote) { 
                     if(!vote) err = true;
                     console.log("Getting admin up to speed");

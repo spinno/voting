@@ -1,9 +1,13 @@
 var DataStore = require('nedb'),
     db = new DataStore();
 
+var members = require('./members.json');
+
 var options = [];
 var allowed = ["adamlew@kth.se"];
 var admins = ["adamlew@kth.se"];
+
+db.insert({ name: "users", users: members.users });
 
 db.insert({ 
     votes: 0,

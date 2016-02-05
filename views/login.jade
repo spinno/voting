@@ -1,6 +1,9 @@
-form(action="/users/new", method="post")
-    label(for='email') Din kth-mail
-    br
-    input(type='email', name='email', placeholder='Din kth mail')
-    br
-    input(type="submit", value="Börja rösta")
+extends layout
+
+block content
+    form(action="/users/new", method="post")
+        label(for='email') Din kth-mail
+        br
+        input.form-control.enter(type='email', name='email', placeholder='Din kth mail')
+        br
+        input.btn.btn-primary.vote-btn(type="submit", value="Börja rösta")

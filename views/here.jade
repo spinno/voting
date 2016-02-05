@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    script(src="/javascripts/underscore-min.js", type="text/javascript")
+    script(src="/javascripts/fuse.min.js", type="text/javascript")
+    script(src="/javascripts/here.js", type="text/javascript")
+    h1 Användare här
+    input.search.form-control(placeholder="Sök..")
+    table.table.table-striped
+        tr
+            th Namn
+            th email
+            th närvarande
+        
+        - for user in users
+            tr(data-user=user.email)
+                td= user.name
+                td= user.email
+                td
+                    - text = user.here ? "Närvarande" : "Ej närvarande"
+                    a.active(data-user=user.email, data-here= user.here)= text
+        
+        
+

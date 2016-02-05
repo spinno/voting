@@ -10,3 +10,22 @@ a {
 .hidden {
     display: none;
 }
+
+.you {
+    font-size: 4vh;
+}
+
+.enter-label {
+    font-size: 5vh;
+}
+
+.enter {
+    font-size: 6vh;
+    height: 3em;
+}
+
+.vote-btn {
+    width: 100%;
+    font-size: 6vh;
+    height: 3em;
+}
