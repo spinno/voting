@@ -4,15 +4,15 @@ block content
   h1 Välkommen till I-voter
   script(src='/javascripts/index.js', type="text/javascript")
   p.you= "Inloggad som: " + email
-  if options
+  .vote(class=(options && canVote) ? "" : "hidden")
       form(id="vote" action="/vote", method="post")
         label.enter-label(for="option") Välj ditt alternativ
         br
         select.form-control.enter(name="option")
-            - each option, index in options
+            - each option, index in options || []
               option(value=index)= option.text
         br
 
         input.btn.btn-success.vote-btn(type="submit", value="Rösta")
-  else
-    p Väntar på omröstning..
+  .wait(class=options = (options || !canVote) ? "hidden" : "")
+    h1 Väntar på omröstning..

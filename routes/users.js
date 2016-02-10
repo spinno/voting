@@ -22,20 +22,12 @@ router.post('/new', function (req, res, next) {
 
     var email = req.body.email || "";
 
-    db.findOne({ name: 'allowed' }, function (err, doc) { 
-        if(!err) {
-            if(_(doc.allowed).contains(email)) {
-                db.insert({
-                    email: email,
-                    voted: false
-                }, function (err, doc) { 
-                    res.cookie("user_id", doc._id, { maxAge: 1000*3600*24 });
-                    res.redirect('/');
-                });
-
-            } else {
-                res.redirect('/users/bad');
-            }
+    db.findOne({ email: email }, function (err, user) { 
+        if(err || !user) {
+            res.redirect("/users/bad");
+        } else {
+            res.cookie("user_id", user._id, { maxAge: 1000*3600*24 });
+            res.redirect("/");
         }
     });
 });
@@ -51,15 +43,13 @@ router.put('/here', function (req, res, next) {
 
     if(email) {
         if(here === "true") {
-            db.update({ name: "allowed" }, 
-                      { $addToSet: { allowed: email } }, function () { 
+            db.update({ email: email }, { allowed: true }, function () { 
                 res.json({ success: true });
             });
 
         } else {
-            db.update({ name: "allowed" }, 
-                      { $pull: { allowed: email } }, function () { 
-
+            db.update({ email: email }, 
+                      { allowed: false }, function () { 
                 res.json({ success: true });
             });
         }

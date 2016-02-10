@@ -27,6 +27,8 @@ module.exports = {
 
                 db.update({ active: true }, { $inc: query }, function () { 
 
+                    db.update({ email: msg.user }, { voted: true });
+
                     socket.emit('wait', {});
                     db.findOne({ active: true }, function (err, doc) { 
                         socket.to("admin").emit("admin-speed", {
@@ -38,11 +40,14 @@ module.exports = {
                 
             });
 
+            socket.on("voting", function (msg) { 
+                socket.join("voting");
+            });
+
             socket.on('admin-hook', function (msg) { 
                 socket.join("admin");
                 db.findOne({ active: true }, function (err, vote) { 
                     if(!vote) err = true;
-                    console.log("Getting admin up to speed");
                     socket.emit("admin-speed", {
                         error: err,
                         vote: vote
@@ -54,12 +59,15 @@ module.exports = {
             socket.on('stop-vote', function () { 
                 db.update({ active: true }, { active: false }, function () { 
                     socket.emit('admin-speed', { error: true });
+                    socket.to("voting").emit("wait", {});
                 });
+
+                db.update({ voting: true }, { voting: false });
             });
 
             socket.on('start-vote', function (msg) { 
                 var options = msg.options.map(function(o) { 
-                    return { text: o, votes: 0}; 
+                    return { text: o, votes: 0 }; 
                 });
 
                 var doc = { active: true, votes: 0, options: options };
@@ -68,7 +76,13 @@ module.exports = {
                         error: err,
                         vote: doc
                     });
+
+                    socket.to("voting").emit('start', {
+                        error: err,
+                        vote: doc
+                    });
                 });
+
             });
 
         });

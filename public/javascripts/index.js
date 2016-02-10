@@ -1,6 +1,17 @@
 var socket = io();
 
 $(function () { 
+    socket.emit("voting", {});
+
+    socket.on('wait', function (msg) { 
+        $(".vote").addClass("hidden");
+        $(".wait").removeClass("hidden");
+    });
+
+    socket.on("start", function (msg) { 
+        window.location.reload();
+    });
+
     $("#vote").submit(function (event) { 
         event.preventDefault();
         var request = {};
