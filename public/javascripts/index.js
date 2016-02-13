@@ -6,6 +6,7 @@ $(function () {
     socket.on('wait', function (msg) { 
         $(".vote").addClass("hidden");
         $(".wait").removeClass("hidden");
+        $(".wait h1").html("Tack för din röst!");
     });
 
     socket.on("start", function (msg) { 
@@ -20,6 +21,6 @@ $(function () {
             request[data.name] = data.value;
         }
 
-        socket.emit('vote', { id: request["option"] });
+        socket.emit('vote', { id: request["option"], user: Cookies.get("user_id") });
     });
 });

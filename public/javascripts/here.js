@@ -6,7 +6,7 @@ $(function () {
         users = new Fuse(data, {
             keys: ["name", "email"],
             id: 'email',
-            threshold: 0.2
+            threshold: 0.3
         });
     });
 
@@ -26,6 +26,11 @@ $(function () {
             success: function (data) { 
                 $(main).attr("data-here", here ? "false" : "true");
                 $(main).html(here ? "Ej närvarande" : "Närvarande");
+                if(!here) {
+                    $(main).addClass("here").removeClass("not-here");
+                } else {
+                    $(main).addClass("not-here").removeClass("here");
+                }
             }
         });
     });

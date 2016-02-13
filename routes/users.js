@@ -5,11 +5,11 @@ var _ = require('underscore');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-    db.findOne({ name: "users" }, function (err, doc) { 
+    db.find({ email: { $exists: true } }, function (err, doc) { 
         if(err) {
             res.json(err);
         } else {
-            res.json(doc.users);
+            res.json(doc);
         }
     });
 });
@@ -23,11 +23,11 @@ router.post('/new', function (req, res, next) {
     var email = req.body.email || "";
 
     db.findOne({ email: email }, function (err, user) { 
-        if(err || !user) {
-            res.redirect("/users/bad");
-        } else {
+        if(user && user.allowed) {
             res.cookie("user_id", user._id, { maxAge: 1000*3600*24 });
             res.redirect("/");
+        } else {
+            res.redirect("/users/bad");
         }
     });
 });
@@ -43,13 +43,12 @@ router.put('/here', function (req, res, next) {
 
     if(email) {
         if(here === "true") {
-            db.update({ email: email }, { allowed: true }, function () { 
+            db.update({ email: email }, { $set: { allowed: true } }, function () { 
                 res.json({ success: true });
             });
 
         } else {
-            db.update({ email: email }, 
-                      { allowed: false }, function () { 
+            db.update({ email: email }, { $set: { allowed: false } }, function () { 
                 res.json({ success: true });
             });
         }

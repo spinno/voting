@@ -17,8 +17,9 @@ block content
                 td= user.name
                 td= user.email
                 td
-                    - text = user.here ? "Närvarande" : "Ej närvarande"
-                    a.active(data-user=user.email, data-here= user.here)= text
+                    - text = user.allowed ? "Närvarande" : "Ej närvarande"
+                    - c = user.allowed ? "here" : "not-here"
+                    a.active(data-user=user.email, data-here=user.allowed, class=c)= text
         
         
 

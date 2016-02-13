@@ -25,9 +25,9 @@ module.exports = {
                 query["stats."+msg.id] = 1;
                 query["votes"] = 1;
 
-                db.update({ active: true }, { $inc: query }, function () { 
 
-                    db.update({ email: msg.user }, { voted: true });
+                db.update({ _id: msg.user }, { $set: {voted: true } });
+                db.update({ active: true }, { $inc: query }, function () { 
 
                     socket.emit('wait', {});
                     db.findOne({ active: true }, function (err, doc) { 
@@ -57,12 +57,12 @@ module.exports = {
             });
 
             socket.on('stop-vote', function () { 
-                db.update({ active: true }, { active: false }, function () { 
+                db.update({ active: true }, { $set: { active: false } }, function () { 
                     socket.emit('admin-speed', { error: true });
                     socket.to("voting").emit("wait", {});
                 });
 
-                db.update({ voting: true }, { voting: false });
+                db.update({ voted: true }, { $set: { voted: false } });
             });
 
             socket.on('start-vote', function (msg) { 

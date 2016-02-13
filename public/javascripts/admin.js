@@ -20,7 +20,7 @@ function setVote(vote) {
     vote.options.forEach(function (option,i) { 
         var percent = (((stats[i] || 0) / vote.votes) || 0) * 100;
         $(".display-results").append(
-            "<span>"+option.text+"</span>"+
+            "<span>"+option.text+" - </span><span class='votes'>"+option.votes+"</span>"+
             "<div class='progress' >"+
                 "<div style='width:"+percent+"%' class='progress-bar'"+
                 "role='progressbar'"+
