@@ -5,7 +5,7 @@
 {"name":"Caroline Lindblad","email":"clindbla@kth.se","allowed":false,"admin":false,"voted":false,"_id":"0GcLLJMT6gRvnuLM"}
 {"name":"Erik Lidholm","email":"elidholm@kth.se","allowed":false,"admin":false,"voted":false,"_id":"0HlzAdz04mS6K1zj"}
 {"name":"Fabian Assarsson","email":"fabianas@kth.se","allowed":false,"admin":false,"voted":false,"_id":"0NjduLISIx3qWOWn"}
-{"name":"Beatrice Boström","email":"bbos@kth.se","allowed":false,"admin":false,"voted":false,"_id":"0UDVpJ09ptbaTg9X"}
+{"name":"Beatrice Boström","email":"bbos@kth.se","allowed":true,"admin":false,"voted":false,"_id":"0UDVpJ09ptbaTg9X"}
 {"name":"Jenny Isaksson","email":"jennyisa@kth.se","allowed":false,"admin":false,"voted":false,"_id":"0UYcbI0gNoxw6RUh"}
 {"name":"Johan Henriques","email":"henriqu@kth.se","allowed":false,"admin":false,"voted":false,"_id":"0UrtEhYiDw9sGfKR"}
 {"name":"Erik Persson","email":"erikp4@kth.se","allowed":false,"admin":false,"voted":false,"_id":"0YVPSDNbqRNL4kqr"}
@@ -479,7 +479,7 @@
 {"name":"Anna Cisneros","email":"cisneros@kth.se","allowed":false,"admin":false,"voted":false,"_id":"T5z6gRJBfJmCmOdk"}
 {"name":"Johanna Siewert Delle","email":"josd@kth.se","allowed":false,"admin":false,"voted":false,"_id":"T7rJqLZV7IcKvEF8"}
 {"name":"Yelena Koselnik","email":"koselnik@kth.se","allowed":false,"admin":false,"voted":false,"_id":"TKRUzHhObsSkIOJs"}
-{"name":"Rasmus Schwerin","email":"rasmussc@kth.se","allowed":false,"admin":false,"voted":false,"_id":"TLWx6ZzlbZIX2YLC"}
+{"name":"Rasmus Schwerin","email":"rasmussc@kth.se","allowed":true,"admin":false,"voted":true,"_id":"TLWx6ZzlbZIX2YLC"}
 {"name":"Martin Carlberg","email":"mcarlbe@kth.se","allowed":false,"admin":false,"voted":false,"_id":"TcvCS0cMXET8wldb"}
 {"name":"Adam Wakid","email":"wakid@kth.se","allowed":false,"admin":false,"voted":false,"_id":"TgVtaBnbVlMPCQMW"}
 {"name":"Filip Haddad","email":"fhaddad@kth.se","allowed":false,"admin":false,"voted":false,"_id":"Thz5a5sZDDPbPz96"}
@@ -664,7 +664,7 @@
 {"name":"Erik Norberg","email":"enorbe@kth.se","allowed":false,"admin":false,"voted":false,"_id":"fKEgm63zvgdsCICt"}
 {"name":"Ingrid Johansson","email":"injoh@kth.se","allowed":false,"admin":false,"voted":false,"_id":"fOos76N0RSGHXN3m"}
 {"name":"August Denes","email":"adenes@kth.se","allowed":false,"admin":false,"voted":false,"_id":"fQsGLbv2meweaEQK"}
-{"name":"Emil Mårtensson","email":"emilmar@kth.se","allowed":false,"admin":false,"voted":false,"_id":"fRaHTXGhdJ0FBhwu"}
+{"name":"Emil Mårtensson","email":"emilmar@kth.se","allowed":true,"admin":false,"voted":true,"_id":"fRaHTXGhdJ0FBhwu"}
 {"name":"Jacob Malmberg","email":"jacobma@gmail.com","allowed":false,"admin":false,"voted":false,"_id":"fXSTC0mMvffBdV13"}
 {"name":"Seth Mandoki","email":"smandoki@kth.se","allowed":false,"admin":false,"voted":false,"_id":"fZ7Zu23EPxykF9ue"}
 {"name":"Betty Ålander","email":"bettyal@kth.se","allowed":false,"admin":false,"voted":false,"_id":"faTCEuETzfJ4hSsS"}
@@ -696,7 +696,7 @@
 {"name":"Olov Daniels","email":"olovd@kth.se","allowed":false,"admin":false,"voted":false,"_id":"h5ZA0cyE3TPY9O3e"}
 {"name":"Julian Luckhurst","email":"julianlu@kth.se","allowed":false,"admin":false,"voted":false,"_id":"h7zguUPxSGsWYr1K"}
 {"name":"Kristin Dahlin Hedqvist","email":"khedqv@kth.se","allowed":false,"admin":false,"voted":false,"_id":"h9LjShU1bwYHroXq"}
-{"votes":0,"active":true,"options":[{"text":"Adam","votes":0},{"text":"Annat","votes":0}],"_id":"hCY4x9MEyHtcYR7C"}
+{"votes":2,"active":true,"options":[{"text":"Adam","votes":0},{"text":"Annat","votes":0}],"_id":"hCY4x9MEyHtcYR7C","stats":{"0":1,"1":1}}
 {"name":"Charlotta Edeland","email":"cedeland@kth.se","allowed":false,"admin":false,"voted":false,"_id":"hCjaLTmlEvA15khc"}
 {"name":"Gustav Holst","email":"ghols@kth.se","allowed":false,"admin":false,"voted":false,"_id":"hDccdMOWjJlL55JS"}
 {"name":"Oscar Hallberg","email":"osha@kth.se","allowed":false,"admin":false,"voted":false,"_id":"hG9NPhsUVM6y2MU3"}
@@ -1035,4 +1035,10 @@
 {"name":"Birkir Saevarsson","email":"birkir@kth.se","allowed":false,"admin":false,"voted":false,"_id":"zmCizrMgAF5Tm1w9"}
 {"name":"Camilla Lemos","email":"clemos@kth.se","allowed":false,"admin":false,"voted":false,"_id":"zra9iiWnJLjwetkt"}
 {"name":"Jakob Snihs","email":"jsnihs@kth.se","allowed":false,"admin":false,"voted":false,"_id":"zyCzNiJKnlqjqIl2"}
-{"name":"Beatrice Boström","email":"bbos@kth.se","allowed":true,"admin":false,"voted":false,"_id":"0UDVpJ09ptbaTg9X"}
+{"name":"Adam lewenhaupt","email":"adamlew@kth.se","allowed":true,"admin":true,"voted":true,"_id":"sEQdE9QwQul2LKe3"}
+{"votes":3,"active":true,"options":[{"text":"Adam","votes":0},{"text":"Annat","votes":0}],"_id":"hCY4x9MEyHtcYR7C","stats":{"0":2,"1":1}}
+{"votes":3,"active":false,"options":[{"text":"Adam","votes":0},{"text":"Annat","votes":0}],"_id":"hCY4x9MEyHtcYR7C","stats":{"0":2,"1":1}}
+{"name":"Rasmus Schwerin","email":"rasmussc@kth.se","allowed":true,"admin":false,"voted":false,"_id":"TLWx6ZzlbZIX2YLC"}
+{"active":true,"votes":0,"options":[{"text":"a","votes":0},{"text":"b","votes":0}],"_id":"eapcCOhkZS2IrqKP"}
+{"name":"Rasmus Schwerin","email":"rasmussc@kth.se","allowed":true,"admin":false,"voted":true,"_id":"TLWx6ZzlbZIX2YLC"}
+{"active":true,"votes":1,"options":[{"text":"a","votes":0},{"text":"b","votes":0}],"_id":"eapcCOhkZS2IrqKP","stats":{"1":1}}
