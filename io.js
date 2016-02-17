@@ -58,11 +58,11 @@ module.exports = {
 
             socket.on('stop-vote', function () { 
                 db.update({ active: true }, { $set: { active: false } }, function () { 
+                    db.update({ voted: true }, { $set: { voted: false } });
                     socket.emit('admin-speed', { error: true });
                     socket.to("voting").emit("wait", {});
                 });
 
-                db.update({ voted: true }, { $set: { voted: false } });
             });
 
             socket.on('start-vote', function (msg) { 

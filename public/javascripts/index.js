@@ -22,5 +22,6 @@ $(function () {
         }
 
         socket.emit('vote', { id: request["option"], user: Cookies.get("user_id") });
+        return false;
     });
 });

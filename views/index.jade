@@ -5,7 +5,7 @@ block content
     script(src='/javascripts/index.js', type="text/javascript")
     p.you= "Inloggad som: " + email
     .vote(class=(options && canVote) ? "" : "hidden")
-        form(id="vote" action="/vote", method="post")
+        form(id="vote" action="/", method="post")
             label.enter-label(for="option") Välj ditt alternativ
             br
             select.form-control.enter(name="option")
