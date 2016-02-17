@@ -10,14 +10,14 @@ module.exports = {
 
         io.on('connection', function (socket) { 
             users += 1;
-            console.log("A user connected (" + users + ")");
+            // console.log("A user connected (" + users + ")");
             onNewSocket.forEach(function (fn) { 
                 fn(socket);
             });
 
             socket.on('disconnect', function () { 
                 users -= 1;
-                console.log("A user disconnected (" + users + ")");
+                // console.log("A user disconnected (" + users + ")");
             });
 
             socket.on('vote', function (msg) { 
@@ -57,8 +57,8 @@ module.exports = {
             });
 
             socket.on('stop-vote', function () { 
+                db.update({ voted: true }, { $set: { voted: false } });
                 db.update({ active: true }, { $set: { active: false } }, function () { 
-                    db.update({ voted: true }, { $set: { voted: false } });
                     socket.emit('admin-speed', { error: true });
                     socket.to("voting").emit("wait", {});
                 });

@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
     var id = req.cookies.user_id;
     db.findOne({ _id: id }, function (err, user) { 
         if(!err && user) {
-            console.log(user);
+            // console.log(user);
             db.findOne({ active: true }, function (err, doc) { 
 
                 var doc = doc || {};
