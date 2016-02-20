@@ -26,7 +26,7 @@ module.exports = {
                 query["votes"] = 1;
 
 
-                db.update({ _id: msg.user }, { $set: {voted: true } });
+                db.update({ _id: msg.user }, { $set: { voted: true } });
                 db.update({ active: true }, { $inc: query }, function () { 
 
                     socket.emit('wait', {});
@@ -57,8 +57,8 @@ module.exports = {
             });
 
             socket.on('stop-vote', function () { 
-                db.update({ voted: true }, { $set: { voted: false } });
-                db.update({ active: true }, { $set: { active: false } }, function () { 
+                db.update({ voted: true }, { $set: { voted: false } }, { multi: true });
+                db.update({ active: true }, { $set: { active: false } }, { multi: true }, function () { 
                     socket.emit('admin-speed', { error: true });
                     socket.to("voting").emit("wait", {});
                 });

@@ -13,10 +13,10 @@ $(function () {
         window.location.reload();
     });
 
-    $("#vote").submit(function (event) { 
+    $(".vote-btn").click(function (event) { 
         event.preventDefault();
         var request = {};
-        var serialized = $(this).serializeArray();
+        var serialized = $("#vote").serializeArray();
         for(data of serialized) {
             request[data.name] = data.value;
         }

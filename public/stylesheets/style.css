@@ -28,6 +28,8 @@ a {
     width: 100%;
     font-size: 6vh;
     height: 3em;
+    line-height: 3em;
+    padding: 0;
 }
 
 .here {
