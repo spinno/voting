@@ -13,8 +13,7 @@ $(function () {
         window.location.reload();
     });
 
-    $(".vote-btn").click(function (event) { 
-        event.preventDefault();
+    $(".vote-btn").bind('click touchstart', function (event) { 
         var request = {};
         var serialized = $("#vote").serializeArray();
         for(data of serialized) {
@@ -22,6 +21,5 @@ $(function () {
         }
 
         socket.emit('vote', { id: request["option"], user: Cookies.get("user_id") });
-        return false;
     });
 });

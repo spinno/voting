@@ -30,6 +30,7 @@ a {
     height: 3em;
     line-height: 3em;
     padding: 0;
+    cursor: pointer;
 }
 
 .here {
