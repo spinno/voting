@@ -1,5 +1,20 @@
 var socket = io();
 
+function vote() {
+    var request = {};
+    var serialized = $("#vote").serializeArray();
+    for(data of serialized) {
+        request[data.name] = data.value;
+    }
+
+    if(data.value == -1) {
+        alert("Du måste välja ett alternativ");
+    } else {
+        socket.emit('vote', { id: request["option"], user: Cookies.get("user_id") });
+    }
+
+}
+
 $(function () { 
     socket.emit("voting", {});
 
@@ -13,13 +28,8 @@ $(function () {
         window.location.reload();
     });
 
-    $(".vote-btn").bind('click touchstart', function (event) { 
-        var request = {};
-        var serialized = $("#vote").serializeArray();
-        for(data of serialized) {
-            request[data.name] = data.value;
-        }
-
-        socket.emit('vote', { id: request["option"], user: Cookies.get("user_id") });
+    $(".vote-btn").on('click', function (event) { 
+        vote();
+        return false;
     });
 });

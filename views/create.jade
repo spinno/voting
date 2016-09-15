@@ -1,0 +1,6 @@
+extends layout
+
+block content
+    h1 Lägg till temporär användare
+    form(method="post", action="/users/create")
+        input.form-control(type="email", placeholder="Email", name="email")

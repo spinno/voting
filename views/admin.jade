@@ -3,7 +3,10 @@ extends layout
 block content
     script(src='/javascripts/admin.js', type="text/javascript")
     .container
-        h1 Admin panel
+        div
+            h1(style="float:left") Admin panel
+            a.btn.btn-primary(href="/users/create", style="float:right;margin-left:10px;") Lägg till temporär användare
+            a.btn.btn-primary(href="/admin/here", style="float:right") Användarlista
         .inactive
             .row
                 .col-sm-12
@@ -23,3 +26,4 @@ block content
             .row
                 .col-sm-12
                     .btn.btn-primary.stop-btn Avsluta röstning
+                    a.btn.btn-primary(href="/admin/here", style="margin-left:10px") Användarlista

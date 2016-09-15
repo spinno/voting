@@ -9,10 +9,11 @@ block content
             label.enter-label(for="option") Välj ditt alternativ
             br
             select.form-control.enter(name="option")
+                option(value=-1) Välj ett alternativ
                 - each option, index in options || []
                     option(value=index)= option.text
             br
 
-        a.btn.btn-success.vote-btn Rösta
+        a(href="javascript:vote()").btn.btn-success.vote-btn Rösta
     .wait(class=options = (options && canVote) ? "hidden" : "")
         h1 Väntar på omröstning..
